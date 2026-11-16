@@ -198,8 +198,8 @@
       <a class="brand" href="#top" aria-label="MK Visual, inicio"><img src="/logo.png" alt="MK Visual" width="1289" height="270"></a>
       <nav aria-label="Secciones">
         <a href="#produccion">Producción</a>
-        <a href="#trabajo">Trabajo</a>
-        <a href="#fotografia">Fotografía</a>
+        <a href="#trabajo" data-nav="trabajo" hidden>Trabajo</a>
+        <a href="#fotografia" data-nav="fotografia" hidden>Fotografía</a>
         <a href="#redes">Redes</a>
       </nav>
       <div class="spacer-m"></div>
@@ -220,7 +220,7 @@
       </h1>
       <div class="cta-row">
         <a class="btn" href="#contacto" data-wa="cotizar">Solicitar cotización</a>
-        <a class="btn ghost" href="#trabajo">Ver nuestro trabajo</a>
+        <a class="btn ghost" href="#incluye" id="hero-ghost">Ver qué incluye</a>
       </div>
     </div>
 
@@ -319,7 +319,7 @@
     </section>
 
     <!-- 4. Nuestro trabajo -->
-    <section id="trabajo">
+    <section id="trabajo" hidden>
       <div class="wrap">
         <div class="kicker reveal">Nuestro trabajo</div>
         <h2 class="reveal">Imágenes que hablan por sí solas.</h2>
@@ -334,7 +334,7 @@
     </section>
 
     <!-- 5. Fotografía publicitaria -->
-    <section id="fotografia">
+    <section id="fotografia" hidden>
       <div class="wrap">
         <div class="kicker reveal">Fotografía publicitaria profesional</div>
         <h2 class="reveal">Una imagen puede cambiar la manera en que ven <span class="outline">tu marca.</span></h2>
@@ -445,6 +445,17 @@
       a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
       a.target = "_blank"; a.rel = "noopener";
     });
+
+    // Las secciones Trabajo y Fotografía quedan ocultas hasta que haya al menos un video / una foto cargada arriba.
+    if (VIDEOS.some((v) => v.id)) {
+      document.getElementById("trabajo").hidden = false;
+      document.querySelector('[data-nav="trabajo"]').hidden = false;
+      const g = document.getElementById("hero-ghost"); g.href = "#trabajo"; g.textContent = "Ver nuestro trabajo";
+    }
+    if (FOTOS.some((f) => f.src)) {
+      document.getElementById("fotografia").hidden = false;
+      document.querySelector('[data-nav="fotografia"]').hidden = false;
+    }
 
     // Videos: se muestra solo la miniatura; el reproductor carga al hacer clic (la página no se pone lenta).
     document.querySelectorAll("[data-video]").forEach((el) => {
