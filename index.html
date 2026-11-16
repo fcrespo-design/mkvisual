@@ -3,226 +3,483 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MK Visual — El problema no es tu negocio. Es cómo se ve.</title>
-  <meta name="description" content="Plan Redes Sociales PRO 2: plan de contenido mensual, diseños para feed e historias, reels, sesión de fotos y video, drone 4K e informe mensual.">
+  <title>MK Visual | Producción audiovisual corporativa en La Serena y Coquimbo</title>
+  <meta name="description" content="Videos corporativos e institucionales con estética de cine, grabación 4K y dron para empresas de La Serena, Coquimbo y la Región de Coquimbo.">
   <link rel="canonical" href="https://mkvisual.cl/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mkvisual.cl/">
+  <meta property="og:title" content="MK Visual | Producción audiovisual corporativa">
+  <meta property="og:description" content="Videos corporativos e institucionales con estética de cine, grabación 4K y dron en la Región de Coquimbo.">
+  <meta property="og:image" content="https://mkvisual.cl/hero.jpg">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preload" as="image" href="/hero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MK Visual",
+    "url": "https://mkvisual.cl/",
+    "image": "https://mkvisual.cl/hero.jpg",
+    "telephone": "+56937477018",
+    "description": "Producción audiovisual corporativa e institucional, fotografía publicitaria y contenido para redes sociales.",
+    "areaServed": ["La Serena", "Coquimbo", "Región de Coquimbo"]
+  }
+  </script>
   <style>
     :root {
-      --bg: #0a0a0a; --bg2: #121212; --fg: #f4f4f4; --muted: #9a9a9a; --line: #2b2b2b;
+      --bg: #0a0a0a; --bg2: #121212; --fg: #f4f4f4; --soft: #cfcfcf; --muted: #9a9a9a; --line: #262626;
       --red: #c1121f; --red-dark: #8f0d16;
       --display: "Anton", Impact, "Arial Narrow", sans-serif;
       --body: "Saira", system-ui, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--fg); font-family: var(--body); font-weight: 300; line-height: 1.55; overflow-x: hidden; }
-    /* textura tipo muro, como las gráficas de la marca */
+    body { background: var(--bg); color: var(--fg); font-family: var(--body); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
     body::before {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .09;
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .08;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    main, header, footer { position: relative; z-index: 1; }
+    header, main, footer { position: relative; z-index: 1; }
     a { color: inherit; }
-    .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
 
-    /* barra superior estilo ficha */
-    .topbar { display: flex; border: 1px solid #555; margin-top: 20px; font-family: var(--display); letter-spacing: .12em; font-size: 14px; }
-    .topbar .brand { padding: 10px 16px; border-right: 1px solid #555; display: flex; align-items: center; }
-    .topbar .brand img { height: 22px; width: auto; display: block; }
-    .topbar .spacer { flex: 1; }
+    /* ---------- encabezado ---------- */
+    .topbar { display: flex; align-items: stretch; border: 1px solid #555; margin: 20px 0; font-family: var(--display); letter-spacing: .12em; font-size: 14px; background: rgba(10,10,10,.6); }
+    .topbar .brand { padding: 10px 16px; border-right: 1px solid #555; display: flex; align-items: center; text-decoration: none; }
+    .topbar .brand img { height: 22px; width: auto; }
+    .topbar nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 28px; }
+    .topbar nav a { text-decoration: none; color: var(--muted); font-size: 13px; letter-spacing: .2em; transition: color .15s; }
+    .topbar nav a:hover { color: var(--fg); }
     .topbar a.tag { background: var(--red); padding: 10px 18px; text-decoration: none; letter-spacing: .5em; display: flex; align-items: center; }
     .topbar a.tag:hover { background: var(--red-dark); }
 
-    /* hero */
-    .hero { min-height: calc(100svh - 70px); display: flex; flex-direction: column; justify-content: center; padding: 72px 0 56px; }
-    .eyebrow { font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); font-size: clamp(13px, 1.6vw, 16px); }
-    .hero h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: .92; letter-spacing: .005em; margin-top: 18px; }
-    .hero h1 .l1 { display: block; font-size: clamp(30px, 5.4vw, 64px); color: var(--fg); }
-    .hero h1 .l2 { display: block; font-size: clamp(76px, 12.5vw, 172px); color: var(--red); line-height: 1; margin-top: .12em; text-wrap: balance; }
-    .hero p.lead { max-width: 560px; margin-top: 28px; font-size: clamp(17px, 2vw, 20px); color: #cfcfcf; }
+    /* ---------- imagen principal + titular ---------- */
+    .hero-img { position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: 82vh; overflow: hidden; background: #000; }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .hero-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,.85) 92%, var(--bg) 100%); }
+    .hero-text { padding: 8px 0 88px; margin-top: -1px; }
+    .eyebrow { font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); font-size: clamp(12px, 1.5vw, 15px); }
+    .hero-text h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: .005em; margin-top: 16px; }
+    .hero-text h1 .l1 { display: block; font-size: clamp(30px, 5.2vw, 62px); line-height: .95; }
+    .hero-text h1 .l2 { display: block; font-size: clamp(72px, 12.5vw, 172px); color: var(--red); line-height: 1; margin-top: .12em; text-wrap: balance; }
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--display); text-transform: uppercase; letter-spacing: .14em; font-size: 16px; text-decoration: none; padding: 16px 28px; border: 1px solid var(--red); background: var(--red); color: #fff; transition: background .15s, color .15s; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--display); text-transform: uppercase; letter-spacing: .14em; font-size: 16px; text-decoration: none; padding: 16px 28px; border: 1px solid var(--red); background: var(--red); color: #fff; transition: background .15s, border-color .15s; cursor: pointer; }
     .btn:hover { background: var(--red-dark); border-color: var(--red-dark); }
     .btn.ghost { background: transparent; border-color: #555; }
-    .btn.ghost:hover { border-color: var(--fg); background: transparent; }
+    .btn.ghost:hover { border-color: var(--fg); }
+    .btn svg { width: 20px; height: 20px; }
 
-    section { padding: 96px 0; border-top: 1px solid var(--line); }
+    /* ---------- secciones ---------- */
+    section { padding: 104px 0; border-top: 1px solid var(--line); }
     .kicker { font-family: var(--display); color: var(--red); letter-spacing: .3em; font-size: 14px; text-transform: uppercase; }
-    h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(40px, 7vw, 84px); line-height: .95; margin-top: 10px; }
+    h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(38px, 6.4vw, 80px); line-height: .98; margin-top: 12px; text-wrap: balance; }
     h2 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
-    .intro { max-width: 640px; color: #cfcfcf; font-size: 18px; margin-top: 20px; }
+    .sub { font-size: clamp(19px, 2.2vw, 24px); color: var(--fg); margin-top: 18px; font-weight: 400; max-width: 760px; }
+    .prose { max-width: 720px; margin-top: 22px; color: var(--soft); font-size: 18px; }
+    .prose p + p { margin-top: 16px; }
+    .prose strong { color: var(--fg); font-weight: 600; }
+    .note { color: var(--muted); font-size: 15px; margin-top: 28px; max-width: 720px; }
+
+    /* producción */
+    .prod { display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: end; }
+    .sectors { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
+    .sectors li { border: 1px solid #3a3a3a; padding: 8px 14px; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--soft); font-weight: 400; }
+    .sectors-label { font-family: var(--display); letter-spacing: .3em; font-size: 13px; color: var(--muted); margin-bottom: 16px; text-transform: uppercase; }
+    .punch { margin-top: 56px; padding-left: 20px; border-left: 3px solid var(--red); font-family: var(--display); text-transform: uppercase; font-size: clamp(24px, 3.4vw, 38px); line-height: 1.1; max-width: 900px; }
+    .punch span { color: var(--red); }
 
     /* qué incluye */
-    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
-    .pillar { background: var(--bg2); padding: 32px 28px 36px; }
-    .pillar .num { font-family: var(--display); color: var(--red); font-size: 15px; letter-spacing: .2em; }
-    .pillar h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 30px; letter-spacing: .02em; margin: 8px 0 6px; }
-    .pillar .why { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
-    .pillar ul { list-style: none; display: grid; gap: 14px; }
-    .pillar li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: baseline; border-top: 1px solid var(--line); padding-top: 14px; }
-    .pillar li b { font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1; color: var(--fg); }
-    .pillar li b.ico { font-size: 15px; letter-spacing: .1em; color: var(--red); }
-    .pillar li span { font-size: 16px; color: #dcdcdc; }
+    .services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 52px; }
+    .svc { background: var(--bg2); padding: 28px 22px 30px; transition: background .2s; }
+    .svc:hover { background: #171717; }
+    .svc svg { width: 34px; height: 34px; color: var(--red); stroke-width: 1.4; }
+    .svc h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 21px; letter-spacing: .03em; line-height: 1.1; margin: 18px 0 8px; }
+    .svc p { color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .quote-box { margin-top: 64px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; border: 1px solid #3a3a3a; padding: 40px; background: linear-gradient(90deg, rgba(193,18,31,.10), rgba(193,18,31,0) 60%); }
+    .quote-box h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 3.6vw, 44px); line-height: 1; }
+    .quote-box p { color: var(--soft); margin-top: 10px; max-width: 560px; }
 
-    /* plan */
-    .plan { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
-    .plan-title { font-family: var(--display); text-transform: uppercase; line-height: .86; text-align: center; }
-    .plan-title .p { display: block; font-size: 26px; color: transparent; -webkit-text-stroke: 1px #777; letter-spacing: .04em; }
-    .plan-title .r { display: block; font-size: clamp(84px, 13vw, 168px); color: transparent; -webkit-text-stroke: 2px var(--fg); }
-    .plan-title .s { display: block; font-size: clamp(84px, 13vw, 168px); color: var(--red); margin-top: -.06em; }
-    .plan-title .v { display: block; font-size: clamp(32px, 4.5vw, 52px); letter-spacing: .55em; margin-top: 10px; padding-left: .55em; }
-    .card { border: 1px solid #444; background: var(--bg2); padding: 36px 32px; }
-    .card .label { font-family: var(--display); letter-spacing: .3em; font-size: 13px; color: var(--muted); text-transform: uppercase; }
-    .price { font-family: var(--display); font-size: clamp(56px, 8vw, 80px); line-height: 1; margin-top: 8px; }
-    .price small { font-family: var(--body); font-size: 17px; color: var(--muted); font-weight: 400; letter-spacing: 0; margin-left: 6px; }
-    .card ul { list-style: none; margin: 28px 0 32px; display: grid; gap: 10px; }
-    .card li { padding-left: 26px; position: relative; font-size: 16px; color: #dcdcdc; }
-    .card li::before { content: ""; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }
-    .card .btn { width: 100%; }
+    /* trabajo */
+    .reel-grid { display: grid; grid-template-columns: 3.16fr 1fr; gap: 16px; margin-top: 52px; }
+    .reel-grid .wide { grid-column: 1 / -1; }
+    .video { position: relative; overflow: hidden; background: #111 center / cover no-repeat; border: 1px solid var(--line); cursor: pointer; }
+    .video.h { aspect-ratio: 16 / 9; }
+    .video.v { aspect-ratio: 9 / 16; }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video .ph { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.75)); }
+    .video .ph.empty { background: repeating-linear-gradient(135deg, #121212 0 14px, #151515 14px 28px); justify-content: center; align-items: center; text-align: center; cursor: default; }
+    .video .play { position: absolute; top: 50%; left: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.85); display: grid; place-items: center; background: rgba(0,0,0,.35); transition: background .2s, transform .2s; }
+    .video:hover .play { background: var(--red); border-color: var(--red); transform: scale(1.05); }
+    .video .play::after { content: ""; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+    .video .ph.empty .play { position: static; margin: 0 0 18px; opacity: .35; }
+    .video .label { font-family: var(--display); text-transform: uppercase; letter-spacing: .14em; font-size: 15px; }
+    .video .meta { color: var(--muted); font-size: 13px; letter-spacing: .2em; text-transform: uppercase; margin-top: 4px; }
 
-    /* cierre */
+    /* fotografía */
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; }
+    .photo { aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--line); background: repeating-linear-gradient(135deg, #121212 0 14px, #151515 14px 28px); display: grid; place-items: center; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .photo:hover img { transform: scale(1.03); }
+    .photo .empty { color: #555; font-family: var(--display); letter-spacing: .2em; font-size: 13px; text-transform: uppercase; }
+
+    /* redes */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 52px; align-items: stretch; }
+    .plan { border: 1px solid #3a3a3a; background: var(--bg2); padding: 34px 28px; display: flex; flex-direction: column; }
+    .plan.featured { border-color: var(--red); background: linear-gradient(180deg, rgba(193,18,31,.12), var(--bg2) 55%); }
+    .plan .badge { align-self: flex-start; font-family: var(--display); font-size: 12px; letter-spacing: .3em; background: var(--red); padding: 5px 10px; margin-bottom: 18px; }
+    .plan .tier { font-family: var(--display); color: var(--muted); letter-spacing: .3em; font-size: 13px; }
+    .plan h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 44px; line-height: 1; margin: 6px 0 16px; }
+    .plan p { color: var(--soft); font-size: 16px; flex: 1; }
+    .plan .btn { margin-top: 28px; width: 100%; }
+
+    /* contacto */
     .closing { text-align: center; }
-    .closing .eyebrow { color: #cfcfcf; }
-    .closing h2 { font-size: clamp(54px, 10vw, 128px); margin: 10px 0 36px; }
-    .closing .btn { min-width: 260px; }
+    .closing h2 { font-size: clamp(44px, 8vw, 108px); margin: 14px auto 0; max-width: 1000px; }
+    .closing .prose { margin: 24px auto 0; }
+    .closing .btn { margin-top: 40px; min-width: 300px; }
+    .closing .phone { display: block; margin-top: 18px; color: var(--muted); letter-spacing: .14em; text-decoration: none; }
+    .closing .phone:hover { color: var(--fg); }
 
     footer { border-top: 1px solid var(--line); padding: 40px 0 48px; }
     footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-    footer img { height: 26px; width: auto; display: block; }
+    footer img { height: 26px; width: auto; }
     footer small { color: #666; letter-spacing: .15em; font-size: 12px; text-transform: uppercase; }
 
-    @media (max-width: 900px) {
-      .pillars { grid-template-columns: 1fr; }
-      .plan { grid-template-columns: 1fr; gap: 40px; }
+    /* animación sutil al entrar en pantalla */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+    @media (max-width: 1080px) {
+      .services { grid-template-columns: repeat(3, 1fr); }
+      .topbar nav { gap: 18px; }
     }
-    @media (max-width: 520px) {
-      section { padding: 72px 0; }
+    @media (max-width: 900px) {
+      .topbar nav { display: none; }
+      .topbar .spacer-m { flex: 1; }
+      .prod { grid-template-columns: 1fr; gap: 36px; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .plans { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery .photo:last-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+    }
+    @media (min-width: 901px) { .topbar .spacer-m { display: none; } }
+    @media (max-width: 640px) {
+      section { padding: 76px 0; }
+      .hero-img { aspect-ratio: 4 / 3; }
+      .hero-img img { object-position: 30% center; }
+      .hero-text { padding-bottom: 72px; }
       .topbar a.tag { letter-spacing: .3em; padding: 10px 12px; }
-      .card { padding: 28px 20px; }
+      .services { grid-template-columns: 1fr; }
+      .svc { display: grid; grid-template-columns: 40px 1fr; column-gap: 16px; padding: 22px 18px; }
+      .svc svg { grid-row: span 2; margin-top: 2px; }
+      .svc h3 { margin: 0 0 4px; font-size: 20px; }
+      .quote-box { padding: 28px 20px; }
+      .reel-grid { grid-template-columns: 1fr; }
+      .reel-grid .video.v { width: min(320px, 100%); margin-inline: auto; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery .photo:last-child { aspect-ratio: 4 / 5; }
       .btn { width: 100%; }
+      .closing .btn { min-width: 0; }
     }
   </style>
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <header class="wrap">
     <div class="topbar">
-      <div class="brand"><img src="/logo.png" alt="MK Visual" width="1289" height="270"></div>
-      <div class="spacer"></div>
-      <a class="tag" href="#plan">DESTACA</a>
+      <a class="brand" href="#top" aria-label="MK Visual, inicio"><img src="/logo.png" alt="MK Visual" width="1289" height="270"></a>
+      <nav aria-label="Secciones">
+        <a href="#produccion">Producción</a>
+        <a href="#trabajo">Trabajo</a>
+        <a href="#fotografia">Fotografía</a>
+        <a href="#redes">Redes</a>
+      </nav>
+      <div class="spacer-m"></div>
+      <a class="tag" href="#contacto">DESTACA</a>
     </div>
   </header>
 
-  <main>
-    <div class="wrap hero">
-      <div class="eyebrow">Contenido para redes · Foto · Video · Drone 4K</div>
+  <main id="top">
+    <!-- 1. Imagen principal + frase -->
+    <div class="hero-img">
+      <img src="/hero.jpg" alt="Equipo de cine digital Sony con lentes y DaVinci Resolve de fondo" width="1600" height="900" fetchpriority="high">
+    </div>
+    <div class="wrap hero-text">
+      <div class="eyebrow">Producción audiovisual corporativa · Fotografía · Dron 4K</div>
       <h1>
         <span class="l1">El problema no es tu negocio.</span>
         <span class="l2">Es cómo se ve.</span>
       </h1>
-      <p class="lead">Planificamos y producimos el contenido de tus redes cada mes: diseño, foto, video y drone. Tú te dedicas a tu negocio. Nosotros hacemos que se vea como se merece.</p>
       <div class="cta-row">
-        <a class="btn" href="#contacto" data-contacto>Quiero que mi negocio destaque</a>
-        <a class="btn ghost" href="#incluye">Ver qué incluye</a>
+        <a class="btn" href="#contacto" data-wa="cotizar">Solicitar cotización</a>
+        <a class="btn ghost" href="#trabajo">Ver nuestro trabajo</a>
       </div>
     </div>
 
+    <!-- 2. Producción audiovisual corporativa -->
+    <section id="produccion">
+      <div class="wrap">
+        <div class="kicker reveal">Producción audiovisual corporativa</div>
+        <div class="prod">
+          <div class="reveal">
+            <h2>Tu empresa tiene una historia. <span class="outline">Nosotros sabemos cómo contarla.</span></h2>
+            <div class="prose">
+              <p>En MK Visual transformamos espacios, procesos y experiencias en producciones audiovisuales de alto impacto.</p>
+              <p>Creamos <strong>videos corporativos e institucionales con estética cinematográfica</strong>, en formato horizontal 16:9.</p>
+              <p>Desde una planta industrial hasta un hotel boutique, capturamos la esencia de cada proyecto con tecnología de cine digital, imágenes aéreas y una postproducción profesional.</p>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="sectors-label">Trabajamos con</div>
+            <ul class="sectors">
+              <li>Turismo</li><li>Hotelería</li><li>Minería</li><li>Industria</li><li>Pisqueras</li><li>Viñas</li><li>Inmobiliarias</li><li>Sectores productivos</li>
+            </ul>
+          </div>
+        </div>
+        <p class="punch reveal">No solo mostramos lo que haces. <span>Mostramos el valor de tu empresa.</span></p>
+      </div>
+    </section>
+
+    <!-- 3. Qué incluye -->
     <section id="incluye">
       <div class="wrap">
-        <div class="kicker">Qué incluye</div>
-        <h2>Todo lo que necesitan <span class="outline">tus redes</span>, en un solo plan.</h2>
-        <p class="intro">Sin coordinar diseñador, fotógrafo y editor por separado. Un solo equipo se encarga de todo.</p>
+        <div class="kicker reveal">Qué incluye</div>
+        <h2 class="reveal">¿Qué incluye nuestra producción?</h2>
 
-        <div class="pillars">
-          <div class="pillar">
-            <div class="num">01</div>
-            <h3>Estrategia</h3>
-            <p class="why">Cada mes sabes qué se va a publicar y por qué.</p>
-            <ul>
-              <li><b class="ico">MES</b><span>Plan de contenido mensual</span></li>
-              <li><b class="ico">GUION</b><span>Creación de guiones para tus videos</span></li>
-              <li><b class="ico">INFORME</b><span>Informe de redes sociales: qué funcionó y qué ajustamos</span></li>
-            </ul>
+        <div class="services">
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="1.5"/><path d="M9 4V3h6v1M8.5 10l1.5 1.5L13 8.5M8.5 16l1.5 1.5L13 14.5M15 10.5h1.5M15 16.5h1.5"/></svg>
+            <h3>Planificación y producción</h3>
+            <p>Conceptualización, coordinación y organización del proyecto audiovisual.</p>
           </div>
-          <div class="pillar">
-            <div class="num">02</div>
-            <h3>Publicaciones</h3>
-            <p class="why">Tu perfil activo todo el mes, con una línea visual clara.</p>
-            <ul>
-              <li><b>15</b><span>Diseños para el feed (incluye fotografía si es necesario)</span></li>
-              <li><b>15</b><span>Diseños de historias</span></li>
-              <li><b>10</b><span>Reels</span></li>
-            </ul>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <h3>Visita en terreno</h3>
+            <p>Reconocimiento de espacios, locaciones y necesidades de grabación.</p>
           </div>
-          <div class="pillar">
-            <div class="num">03</div>
-            <h3>Producción</h3>
-            <p class="why">Material propio de tu negocio, no fotos de banco.</p>
-            <ul>
-              <li><b>35</b><span>Fotos editadas en sesión fotográfica</span></li>
-              <li><b class="ico">VIDEO</b><span>Sesión de grabación de video</span></li>
-              <li><b class="ico">4K</b><span>Tomas aéreas con drone 4K</span></li>
-              <li><b class="ico">IA</b><span>Herramientas de inteligencia artificial en la producción</span></li>
-            </ul>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="7" width="13" height="10" rx="1.5"/><path d="M15.5 10.5 21.5 7.5v9l-6-3"/><circle cx="7" cy="4.5" r="1.8"/><circle cx="11.5" cy="4.5" r="1.8"/></svg>
+            <h3>Grabación en cine digital 4K</h3>
+            <p>Captura profesional con cámaras de la línea Cinema de Sony.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3l3.2 7.5M21 12l-7.5 3.2M12 21l-3.2-7.5M3 12l7.5-3.2M18.4 5.6l-5 6.6M5.6 18.4l5-6.6"/></svg>
+            <h3>Dirección de fotografía</h3>
+            <p>Composición, iluminación y movimientos cinematográficos.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9.5" y="10" width="5" height="4" rx="1"/><path d="M9.5 11 6.5 8M14.5 11l3-3M9.5 13l-3 3M14.5 13l3 3"/><ellipse cx="5.5" cy="7" rx="3" ry="1.1"/><ellipse cx="18.5" cy="7" rx="3" ry="1.1"/><ellipse cx="5.5" cy="17" rx="3" ry="1.1"/><ellipse cx="18.5" cy="17" rx="3" ry="1.1"/></svg>
+            <h3>Tomas aéreas con dron 4K</h3>
+            <p>Perspectivas aéreas para destacar instalaciones, terrenos y paisajes.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M2.5 13h19M7 13v6M12.5 13v6M17 13v6M9 7.5v3.5l3-1.75z"/></svg>
+            <h3>Edición profesional</h3>
+            <p>Montaje audiovisual con ritmo, intención y narrativa.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="1.2"/><path d="M12 12l3.5-4"/><circle cx="12" cy="6" r=".6" fill="currentColor"/><circle cx="17.2" cy="15" r=".6" fill="currentColor"/><circle cx="6.8" cy="15" r=".6" fill="currentColor"/></svg>
+            <h3>Colorización cinematográfica</h3>
+            <p>Corrección de color y look visual profesional en DaVinci Resolve.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h2M7 8v8M10 5v14M13 9v6M16 7v10M19 10.5v3M21 12h0"/></svg>
+            <h3>Musicalización y diseño sonoro</h3>
+            <p>Música y tratamiento de audio que potencian el mensaje.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></svg>
+            <h3>Guion y voz en off</h3>
+            <p>Desarrollo narrativo y locución profesional cuando el proyecto lo requiera.</p>
+          </div>
+          <div class="svc reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5M4 15.5v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+            <h3>Entrega optimizada</h3>
+            <p>Exportación de alta calidad en formatos para web, presentaciones, eventos o plataformas digitales.</p>
+          </div>
+        </div>
+        <p class="note reveal">Los servicios específicos se definen de acuerdo con las necesidades y el alcance de cada producción.</p>
+
+        <div class="quote-box reveal">
+          <div>
+            <h3>Cada proyecto es único.<br>Tu producción también.</h3>
+            <p>Cuéntanos qué necesitas y diseñaremos una propuesta audiovisual a la medida de tu empresa.</p>
+          </div>
+          <a class="btn" href="#contacto" data-wa="cotizar">Solicitar cotización</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Nuestro trabajo -->
+    <section id="trabajo">
+      <div class="wrap">
+        <div class="kicker reveal">Nuestro trabajo</div>
+        <h2 class="reveal">Imágenes que hablan por sí solas.</h2>
+        <p class="prose reveal">Una selección de nuestras producciones audiovisuales, donde la creatividad, la tecnología y la narrativa se unen para comunicar de manera diferente.</p>
+
+        <div class="reel-grid">
+          <div class="video h wide reveal" data-video="0"></div>
+          <div class="video h reveal" data-video="1"></div>
+          <div class="video v reveal" data-video="2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Fotografía publicitaria -->
+    <section id="fotografia">
+      <div class="wrap">
+        <div class="kicker reveal">Fotografía publicitaria profesional</div>
+        <h2 class="reveal">Una imagen puede cambiar la manera en que ven <span class="outline">tu marca.</span></h2>
+        <p class="prose reveal">Fotografía publicitaria de alto nivel para hoteles, espacios comerciales, gastronomía, productos y empresas. Cuidamos cada detalle, desde la iluminación hasta la edición final, para crear imágenes que transmiten calidad, identidad y profesionalismo.</p>
+
+        <div class="gallery">
+          <div class="photo reveal" data-foto="0"></div>
+          <div class="photo reveal" data-foto="1"></div>
+          <div class="photo reveal" data-foto="2"></div>
+        </div>
+        <div class="cta-row reveal">
+          <a class="btn ghost" href="#contacto" data-wa="foto">Cotizar fotografía</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Redes sociales -->
+    <section id="redes">
+      <div class="wrap">
+        <div class="kicker reveal">Redes sociales</div>
+        <h2 class="reveal">También impulsamos <span class="outline">tus redes sociales.</span></h2>
+        <p class="sub reveal">Tu marca merece destacar también en el mundo digital.</p>
+        <p class="prose reveal">Creamos contenido estratégico y visualmente atractivo para fortalecer la presencia de tu empresa en redes sociales. Combinamos fotografía, video, diseño y planificación para construir una identidad reconocible, profesional y consistente.</p>
+
+        <div class="plans">
+          <div class="plan reveal">
+            <div class="tier">PLAN</div>
+            <h3>Starter</h3>
+            <p>Para negocios que necesitan comenzar a construir una presencia digital profesional, con contenido visual de calidad.</p>
+            <a class="btn ghost" href="#contacto" data-wa="plan" data-plan="Starter">Consultar plan</a>
+          </div>
+          <div class="plan reveal">
+            <div class="tier">PLAN</div>
+            <h3>Pro 1</h3>
+            <p>Para marcas que buscan aumentar su actividad en redes sociales mediante contenido creativo, fotografía, video y planificación.</p>
+            <a class="btn ghost" href="#contacto" data-wa="plan" data-plan="Pro 1">Consultar plan</a>
+          </div>
+          <div class="plan featured reveal">
+            <div class="badge">INTEGRAL</div>
+            <div class="tier">PLAN</div>
+            <h3>Pro 2</h3>
+            <p>Nuestra propuesta integral de contenido y posicionamiento de marca, con producción audiovisual, fotografía, reels, diseño gráfico, estrategia y seguimiento de resultados.</p>
+            <a class="btn" href="#contacto" data-wa="plan" data-plan="Pro 2">Consultar plan</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="plan">
-      <div class="wrap plan">
-        <div class="plan-title" aria-label="Plan Redes Sociales PRO 2">
-          <span class="p">Plan</span>
-          <span class="r">Redes</span>
-          <span class="s">Sociales</span>
-          <span class="v">PRO 2</span>
-        </div>
-        <div class="card">
-          <div class="label">Valor del plan</div>
-          <div class="price">$790.000<small>mensual</small></div>
-          <ul>
-            <li>Plan de contenido mensual</li>
-            <li>15 diseños para el feed (incluye fotografía si es necesario)</li>
-            <li>15 diseños de historias</li>
-            <li>10 reels</li>
-            <li>Sesión de fotos (35 editadas)</li>
-            <li>Sesión de grabación de video</li>
-            <li>Creación de guiones</li>
-            <li>Uso de IA</li>
-            <li>Uso de drone 4K</li>
-            <li>Informe de redes sociales</li>
-          </ul>
-          <a class="btn" href="#contacto" data-contacto>Quiero el Plan PRO 2</a>
-        </div>
-      </div>
-    </section>
-
+    <!-- 7. Contacto -->
     <section id="contacto" class="closing">
       <div class="wrap">
-        <div class="eyebrow">El problema no es tu negocio</div>
-        <h2>Es cómo se ve.</h2>
-        <a class="btn" href="#contacto" data-contacto>Hablemos</a>
+        <div class="kicker reveal">Contacto</div>
+        <h2 class="reveal">Hablemos de tu próximo proyecto.</h2>
+        <div class="prose reveal">
+          <p>Una gran producción comienza con una buena idea.</p>
+          <p>Cuéntanos qué quieres comunicar y hagamos que tu empresa se vea como realmente merece.</p>
+        </div>
+        <div class="reveal">
+          <a class="btn" href="#contacto" data-wa="contacto">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3z"/></svg>
+            Hablemos por WhatsApp
+          </a>
+          <a class="phone" href="tel:+56937477018">+56 9 3747 7018</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <img src="/logo.png" alt="MK Visual" width="1289" height="270">
-      <small>mkvisual.cl</small>
+      <img src="/logo.png" alt="MK Visual" width="1289" height="270" loading="lazy">
+      <small>Producción audiovisual · Región de Coquimbo · mkvisual.cl</small>
     </div>
   </footer>
 
   <script>
-    // Contacto: poner aquí el link de WhatsApp (ej. "https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20info%20del%20Plan%20PRO%202").
-    // Mientras esté vacío, los botones bajan a la sección de contacto.
-    const CONTACTO = "https://wa.me/56937477018?text=" + encodeURIComponent("Hola, quiero información del Plan Redes Sociales PRO 2.");
-    if (CONTACTO) document.querySelectorAll("[data-contacto]").forEach(a => { a.href = CONTACTO; a.target = "_blank"; a.rel = "noopener"; });
+    /* ====== CONFIGURACIÓN: editar solo esta parte ====== */
+
+    // WhatsApp de contacto (solo números, con código de país).
+    const WHATSAPP = "56937477018";
+
+    // Videos del portafolio. tipo: "youtube" o "vimeo". id: el código del video.
+    // poster (opcional): imagen de vista previa; en YouTube se toma sola si se deja vacía.
+    const VIDEOS = [
+      { titulo: "Video corporativo / institucional", formato: "16:9", tipo: "youtube", id: "", poster: "" },
+      { titulo: "Turismo · Hotelería · Industria", formato: "16:9", tipo: "youtube", id: "", poster: "" },
+      { titulo: "Contenido para redes", formato: "9:16", tipo: "youtube", id: "", poster: "" },
+    ];
+
+    // Fotografías publicitarias (rutas a archivos subidos al repo, ej. "/fotos/hotel.jpg").
+    const FOTOS = [
+      { src: "", alt: "" },
+      { src: "", alt: "" },
+      { src: "", alt: "" },
+    ];
+
+    /* ====== fin configuración ====== */
+
+    const MENSAJES = {
+      cotizar: "Hola, quiero cotizar una producción audiovisual para mi empresa.",
+      foto: "Hola, quiero cotizar una sesión de fotografía publicitaria.",
+      contacto: "Hola, quiero conversar sobre un proyecto audiovisual.",
+      plan: (p) => `Hola, quiero información del Plan ${p} de redes sociales.`,
+    };
+    document.querySelectorAll("[data-wa]").forEach((a) => {
+      const k = a.dataset.wa;
+      const txt = k === "plan" ? MENSAJES.plan(a.dataset.plan) : MENSAJES[k];
+      a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+      a.target = "_blank"; a.rel = "noopener";
+    });
+
+    // Videos: se muestra solo la miniatura; el reproductor carga al hacer clic (la página no se pone lenta).
+    document.querySelectorAll("[data-video]").forEach((el) => {
+      const v = VIDEOS[+el.dataset.video];
+      if (!v || !v.id) {
+        el.innerHTML = `<div class="ph empty"><span class="play"></span><div class="label">${v.titulo}</div><div class="meta">${v.formato} · Próximamente</div></div>`;
+        return;
+      }
+      const poster = v.poster || (v.tipo === "youtube" ? `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg` : "");
+      if (poster) el.style.backgroundImage = `url("${poster}")`;
+      el.innerHTML = `<div class="ph"><span class="play"></span><div class="label">${v.titulo}</div><div class="meta">${v.formato}</div></div>`;
+      el.setAttribute("role", "button"); el.setAttribute("tabindex", "0"); el.setAttribute("aria-label", `Reproducir: ${v.titulo}`);
+      const play = () => {
+        const src = v.tipo === "vimeo"
+          ? `https://player.vimeo.com/video/${v.id}?autoplay=1`
+          : `https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`;
+        el.innerHTML = `<iframe src="${src}" title="${v.titulo}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+      };
+      el.addEventListener("click", play, { once: true });
+      el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } });
+    });
+
+    // Fotos
+    document.querySelectorAll("[data-foto]").forEach((el) => {
+      const f = FOTOS[+el.dataset.foto];
+      el.innerHTML = f && f.src
+        ? `<img src="${f.src}" alt="${f.alt || "Fotografía publicitaria MK Visual"}" loading="lazy">`
+        : `<span class="empty">Fotografía · próximamente</span>`;
+    });
+
+    // Aparición suave al hacer scroll
+    const io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" }) : null;
+    document.querySelectorAll(".reveal").forEach((el) => io ? io.observe(el) : el.classList.add("in"));
   </script>
 </body>
 </html>
