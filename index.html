@@ -487,6 +487,8 @@
     }
 
     // Videos: se muestra solo la miniatura; el reproductor carga al hacer clic (la página no se pone lenta).
+    // Suena uno a la vez: al reproducir uno, los demás vuelven a su miniatura. Al salir de la sección, se detienen todos.
+    const players = [];
     document.querySelectorAll("[data-video]").forEach((el) => {
       const v = VIDEOS[+el.dataset.video];
       if (!v || !v.id) {
@@ -495,17 +497,35 @@
       }
       const poster = v.poster || (v.tipo === "youtube" ? `https://i.ytimg.com/vi/${v.id}/${el.classList.contains("v") ? "oar2" : "hqdefault"}.jpg` : "");
       if (poster) el.style.backgroundImage = `url("${poster}")`;
-      el.innerHTML = `<div class="ph"><span class="play"></span><div class="label">${v.titulo}</div><div class="meta">${v.formato}</div></div>`;
-      el.setAttribute("role", "button"); el.setAttribute("tabindex", "0"); el.setAttribute("aria-label", `Reproducir: ${v.titulo}`);
+      const thumb = `<div class="ph"><span class="play"></span><div class="label">${v.titulo}</div><div class="meta">${v.formato}</div></div>`;
+      let playing = false;
+      const stop = () => {
+        if (!playing) return;
+        playing = false;
+        el.innerHTML = thumb;
+        el.setAttribute("role", "button"); el.setAttribute("tabindex", "0");
+      };
       const play = () => {
+        if (playing) return;
+        players.forEach((p) => p.stop());
+        playing = true;
         const src = v.tipo === "vimeo"
           ? `https://player.vimeo.com/video/${v.id}?autoplay=1`
           : `https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0`;
         el.innerHTML = `<iframe src="${src}" title="${v.titulo}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+        el.removeAttribute("role"); el.removeAttribute("tabindex");
       };
-      el.addEventListener("click", play, { once: true });
-      el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(); } });
+      el.innerHTML = thumb;
+      el.setAttribute("role", "button"); el.setAttribute("tabindex", "0"); el.setAttribute("aria-label", `Reproducir: ${v.titulo}`);
+      el.addEventListener("click", play);
+      el.addEventListener("keydown", (e) => { if (!playing && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); play(); } });
+      players.push({ stop });
     });
+    if ("IntersectionObserver" in window && players.length) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (!e.isIntersecting) players.forEach((p) => p.stop()); });
+      }).observe(document.getElementById("trabajo"));
+    }
 
     // Fotos
     document.querySelectorAll("[data-foto]").forEach((el) => {
